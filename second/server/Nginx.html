@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nginx | liuxiaowei</title>
+    <meta name="description" content="liuxiaowei">
+    <link rel="stylesheet" href="/assets/style.b42d40ab.css">
+    <link rel="modulepreload" href="/assets/app.91d57d2c.js">
+    <link rel="modulepreload" href="/assets/second_server_Nginx.md.dd811e5c.lean.js">
+    
+    <script id="check-dark-light">(()=>{const e=localStorage.getItem("vitepress-theme-appearance"),a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
+  </head>
+  <body>
+    <div id="app"><div class="Layout" data-v-e9d76f45><!--[--><!--]--><!--[--><span tabindex="-1" data-v-904c0883></span><a href="#VPContent" class="VPSkipLink visually-hidden" data-v-904c0883> Skip to content </a><!--]--><!----><header class="VPNav no-sidebar" data-v-e9d76f45 data-v-b45b281b><div class="VPNavBar" data-v-b45b281b data-v-9b22e67a><div class="container" data-v-9b22e67a><div class="VPNavBarTitle" data-v-9b22e67a data-v-ea7a84d9><a class="title" href="/" data-v-ea7a84d9><!--[--><!--]--><!--[--><img class="VPImage logo" src="/logo.png" data-v-d9353ccb><!--]--><!--[-->liuxiaowei<!--]--><!--[--><!--]--></a></div><div class="content" data-v-9b22e67a><!--[--><!--]--><!----><nav aria-labelledby="main-nav-aria-label" class="VPNavBarMenu menu" data-v-9b22e67a data-v-6d4f937e><span id="main-nav-aria-label" class="visually-hidden" data-v-6d4f937e>Main Navigation</span><!--[--><!--[--><a class="VPLink link VPNavBarMenuLink" href="https://gitee.com/liuxiaowei2018" target="_blank" rel="noreferrer" data-v-6d4f937e data-v-136ef7ac data-v-8dadc7dc><!--[-->gitee<!--]--><!----></a><!--]--><!--[--><a class="VPLink link VPNavBarMenuLink" href="https://www.coderutil.com/" target="_blank" rel="noreferrer" data-v-6d4f937e data-v-136ef7ac data-v-8dadc7dc><!--[-->工具<!--]--><!----></a><!--]--><!--[--><div class="VPFlyout VPNavBarMenuGroup" data-v-6d4f937e data-v-526f3899><button type="button" class="button" aria-haspopup="true" aria-expanded="false" data-v-526f3899><span class="text" data-v-526f3899><!----> 外链 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewbox="0 0 24 24" class="text-icon" data-v-526f3899><path d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z"></path></svg></span></button><div class="menu" data-v-526f3899><div class="VPMenu" data-v-526f3899 data-v-5d68c276><div class="items" data-v-5d68c276><!--[--><!--[--><div class="VPMenuGroup" data-v-5d68c276 data-v-fec83b0e><!----><!--[--><!--[--><div class="VPMenuLink" data-v-fec83b0e data-v-182440f4><a class="VPLink link" href="/ https:/stackoverflow.com" data-v-182440f4 data-v-8dadc7dc><!--[-->stackoverflow<!--]--><!----></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-fec83b0e data-v-182440f4><a class="VPLink link" href="https://www.baidu.com" target="_blank" rel="noreferrer" data-v-182440f4 data-v-8dadc7dc><!--[-->baidu<!--]--><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" height="24px" viewbox="0 0 24 24" width="24px" class="icon" data-v-8dadc7dc><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z"></path></svg></a></div><!--]--><!--]--></div><!--]--><!--[--><div class="VPMenuGroup" data-v-5d68c276 data-v-fec83b0e><!----><!--[--><!--[--><div class="VPMenuLink" data-v-fec83b0e data-v-182440f4><a class="VPLink link" href="https://blog.csdn.net/weixin_42126468/" target="_blank" rel="noreferrer" data-v-182440f4 data-v-8dadc7dc><!--[-->csdn<!--]--><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" height="24px" viewbox="0 0 24 24" width="24px" class="icon" data-v-8dadc7dc><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z"></path></svg></a></div><!--]--><!--[--><div class="VPMenuLink" data-v-fec83b0e data-v-182440f4><a class="VPLink link" href="https://space.bilibili.com/38038619" target="_blank" rel="noreferrer" data-v-182440f4 data-v-8dadc7dc><!--[-->bilibili<!--]--><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" height="24px" viewbox="0 0 24 24" width="24px" class="icon" data-v-8dadc7dc><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z"></path></svg></a></div><!--]--><!--]--></div><!--]--><!--]--></div><!--[--><!--]--></div></div></div><!--]--><!--]--></nav><!----><div class="VPNavBarAppearance appearance" data-v-9b22e67a data-v-460933bc><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" aria-label="toggle dark mode" aria-checked="false" data-v-460933bc data-v-5ac01f6f data-v-ee49a50f><span class="check" data-v-ee49a50f><span class="icon" data-v-ee49a50f><!--[--><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewbox="0 0 24 24" class="sun" data-v-5ac01f6f><path d="M12,18c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S15.3,18,12,18zM12,8c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4c2.2,0,4-1.8,4-4C16,9.8,14.2,8,12,8z"></path><path d="M12,4c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,3.6,12.6,4,12,4z"></path><path d="M12,24c-0.6,0-1-0.4-1-1v-2c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,23.6,12.6,24,12,24z"></path><path d="M5.6,6.6c-0.3,0-0.5-0.1-0.7-0.3L3.5,4.9c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C6.2,6.5,5.9,6.6,5.6,6.6z"></path><path d="M19.8,20.8c-0.3,0-0.5-0.1-0.7-0.3l-1.4-1.4c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C20.3,20.7,20,20.8,19.8,20.8z"></path><path d="M3,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S3.6,13,3,13z"></path><path d="M23,13h-2c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path><path d="M4.2,20.8c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C4.7,20.7,4.5,20.8,4.2,20.8z"></path><path d="M18.4,6.6c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C18.9,6.5,18.6,6.6,18.4,6.6z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewbox="0 0 24 24" class="moon" data-v-5ac01f6f><path d="M12.1,22c-0.3,0-0.6,0-0.9,0c-5.5-0.5-9.5-5.4-9-10.9c0.4-4.8,4.2-8.6,9-9c0.4,0,0.8,0.2,1,0.5c0.2,0.3,0.2,0.8-0.1,1.1c-2,2.7-1.4,6.4,1.3,8.4c2.1,1.6,5,1.6,7.1,0c0.3-0.2,0.7-0.3,1.1-0.1c0.3,0.2,0.5,0.6,0.5,1c-0.2,2.7-1.5,5.1-3.6,6.8C16.6,21.2,14.4,22,12.1,22zM9.3,4.4c-2.9,1-5,3.6-5.2,6.8c-0.4,4.4,2.8,8.3,7.2,8.7c2.1,0.2,4.2-0.4,5.8-1.8c1.1-0.9,1.9-2.1,2.4-3.4c-2.5,0.9-5.3,0.5-7.5-1.1C9.2,11.4,8.1,7.7,9.3,4.4z"></path></svg><!--]--></span></span></button></div><div class="VPSocialLinks VPNavBarSocialLinks social-links" data-v-9b22e67a data-v-9059bf8e data-v-44146ccd><!--[--><a class="VPSocialLink" href="https://github.com/liuxiaowei2018" target="_blank" rel="noopener" data-v-44146ccd data-v-57443466><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a><a class="VPSocialLink" href="..." target="_blank" rel="noopener" data-v-44146ccd data-v-57443466><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12...6.38z"/></svg></a><!--]--></div><div class="VPFlyout VPNavBarExtra extra" data-v-9b22e67a data-v-21471cfd data-v-526f3899><button type="button" class="button" aria-haspopup="true" aria-expanded="false" aria-label="extra navigation" data-v-526f3899><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewbox="0 0 24 24" class="icon" data-v-526f3899><circle cx="12" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="5" cy="12" r="2"></circle></svg></button><div class="menu" data-v-526f3899><div class="VPMenu" data-v-526f3899 data-v-5d68c276><!----><!--[--><!--[--><!----><div class="group" data-v-21471cfd><div class="item appearance" data-v-21471cfd><p class="label" data-v-21471cfd>Appearance</p><div class="appearance-action" data-v-21471cfd><button class="VPSwitch VPSwitchAppearance" type="button" role="switch" aria-label="toggle dark mode" aria-checked="false" data-v-21471cfd data-v-5ac01f6f data-v-ee49a50f><span class="check" data-v-ee49a50f><span class="icon" data-v-ee49a50f><!--[--><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewbox="0 0 24 24" class="sun" data-v-5ac01f6f><path d="M12,18c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S15.3,18,12,18zM12,8c-2.2,0-4,1.8-4,4c0,2.2,1.8,4,4,4c2.2,0,4-1.8,4-4C16,9.8,14.2,8,12,8z"></path><path d="M12,4c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,3.6,12.6,4,12,4z"></path><path d="M12,24c-0.6,0-1-0.4-1-1v-2c0-0.6,0.4-1,1-1s1,0.4,1,1v2C13,23.6,12.6,24,12,24z"></path><path d="M5.6,6.6c-0.3,0-0.5-0.1-0.7-0.3L3.5,4.9c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C6.2,6.5,5.9,6.6,5.6,6.6z"></path><path d="M19.8,20.8c-0.3,0-0.5-0.1-0.7-0.3l-1.4-1.4c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l1.4,1.4c0.4,0.4,0.4,1,0,1.4C20.3,20.7,20,20.8,19.8,20.8z"></path><path d="M3,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S3.6,13,3,13z"></path><path d="M23,13h-2c-0.6,0-1-0.4-1-1s0.4-1,1-1h2c0.6,0,1,0.4,1,1S23.6,13,23,13z"></path><path d="M4.2,20.8c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C4.7,20.7,4.5,20.8,4.2,20.8z"></path><path d="M18.4,6.6c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l1.4-1.4c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-1.4,1.4C18.9,6.5,18.6,6.6,18.4,6.6z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewbox="0 0 24 24" class="moon" data-v-5ac01f6f><path d="M12.1,22c-0.3,0-0.6,0-0.9,0c-5.5-0.5-9.5-5.4-9-10.9c0.4-4.8,4.2-8.6,9-9c0.4,0,0.8,0.2,1,0.5c0.2,0.3,0.2,0.8-0.1,1.1c-2,2.7-1.4,6.4,1.3,8.4c2.1,1.6,5,1.6,7.1,0c0.3-0.2,0.7-0.3,1.1-0.1c0.3,0.2,0.5,0.6,0.5,1c-0.2,2.7-1.5,5.1-3.6,6.8C16.6,21.2,14.4,22,12.1,22zM9.3,4.4c-2.9,1-5,3.6-5.2,6.8c-0.4,4.4,2.8,8.3,7.2,8.7c2.1,0.2,4.2-0.4,5.8-1.8c1.1-0.9,1.9-2.1,2.4-3.4c-2.5,0.9-5.3,0.5-7.5-1.1C9.2,11.4,8.1,7.7,9.3,4.4z"></path></svg><!--]--></span></span></button></div></div></div><div class="group" data-v-21471cfd><div class="item social-links" data-v-21471cfd><div class="VPSocialLinks social-links-list" data-v-21471cfd data-v-44146ccd><!--[--><a class="VPSocialLink" href="https://github.com/liuxiaowei2018" target="_blank" rel="noopener" data-v-44146ccd data-v-57443466><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a><a class="VPSocialLink" href="..." target="_blank" rel="noopener" data-v-44146ccd data-v-57443466><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12...6.38z"/></svg></a><!--]--></div></div></div><!--]--><!--]--></div></div></div><!--[--><!--]--><button type="button" class="VPNavBarHamburger hamburger" aria-label="mobile navigation" aria-expanded="false" aria-controls="VPNavScreen" data-v-9b22e67a data-v-ddaf8df7><span class="container" data-v-ddaf8df7><span class="top" data-v-ddaf8df7></span><span class="middle" data-v-ddaf8df7></span><span class="bottom" data-v-ddaf8df7></span></span></button></div></div></div><!----></header><!----><!----><div class="VPContent" id="VPContent" data-v-e9d76f45 data-v-cc187735><div class="VPDoc has-aside" data-v-cc187735 data-v-9ef6ad66><div class="container" data-v-9ef6ad66><div class="aside" data-v-9ef6ad66><div class="aside-curtain" data-v-9ef6ad66></div><div class="aside-container" data-v-9ef6ad66><div class="aside-content" data-v-9ef6ad66><div class="VPDocAside" data-v-9ef6ad66 data-v-c0ea8645><!--[--><!--]--><!--[--><!--]--><div class="VPDocAsideOutline" data-v-c0ea8645 data-v-3545326f><div class="content" data-v-3545326f><div class="outline-marker" data-v-3545326f></div><div class="outline-title" data-v-3545326f>On this page</div><nav aria-labelledby="doc-outline-aria-label" data-v-3545326f><span class="visually-hidden" id="doc-outline-aria-label" data-v-3545326f> Table of Contents for current page </span><ul class="root" data-v-3545326f data-v-424f8014><!--[--><!--]--></ul></nav></div></div><!--[--><!--]--><div class="spacer" data-v-c0ea8645></div><!--[--><!--]--><!----><!--[--><!--]--><!--[--><!--]--></div></div></div></div><div class="content" data-v-9ef6ad66><div class="content-container" data-v-9ef6ad66><!--[--><!--]--><main class="main" data-v-9ef6ad66><div style="position:relative;" class="vp-doc _second_server_Nginx" data-v-9ef6ad66><div><h1 id="nginx" tabindex="-1">Nginx <a class="header-anchor" href="#nginx" aria-hidden="true">#</a></h1><h2 id="nginx使用场景" tabindex="-1">Nginx使用场景 <a class="header-anchor" href="#nginx使用场景" aria-hidden="true">#</a></h2><blockquote><ol><li>静态资源服务，通过本地文件系统提供服务；</li><li>反向代理服务，延伸出包括缓存、负载均衡等；</li><li><code>API</code> 服务， <code>OpenResty</code> ；</li></ol></blockquote><h2 id="nginx目录信息" tabindex="-1">Nginx目录信息 <a class="header-anchor" href="#nginx目录信息" aria-hidden="true">#</a></h2><blockquote><div class="language-"><button class="copy"></button><span class="lang"></span><pre><code><span class="line"><span style="color:#A6ACCD;"># Nginx配置文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">/etc/nginx/nginx.conf # nginx 主配置文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">/etc/nginx/nginx.conf.default</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 可执行程序文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/bin/nginx-upgrade</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/sbin/nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># nginx库文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/lib/systemd/system/nginx.service # 用于配置系统守护进程</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/lib64/nginx/modules # Nginx模块目录</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 帮助文档</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/share/doc/nginx-1.16.1</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/share/doc/nginx-1.16.1/CHANGES</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/share/doc/nginx-1.16.1/README</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/share/doc/nginx-1.16.1/README.dynamic</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/share/doc/nginx-1.16.1/UPGRADE-NOTES-1.6-to-1.10</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 静态资源目录</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/share/nginx/html/404.html</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/share/nginx/html/50x.html</span></span>
+<span class="line"><span style="color:#A6ACCD;">/usr/share/nginx/html/index.html</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 存放Nginx日志文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">/var/log/nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><ol><li><code>/etc/nginx/conf.d/</code> 是子配置项存放处， <code>/etc/nginx/nginx.conf</code> 主配置文件会默认把这个文件夹中所有子配置项都引入；</li><li><code>/usr/share/nginx/html/</code> 静态文件都放在这个文件夹，也可以根据你自己的习惯放在其他地方；</li></ol></blockquote><h2 id="nginx-常用命令" tabindex="-1">Nginx 常用命令 <a class="header-anchor" href="#nginx-常用命令" aria-hidden="true">#</a></h2><blockquote><div class="language-"><button class="copy"></button><span class="lang"></span><pre><code><span class="line"><span style="color:#A6ACCD;"># 开机配置</span></span>
+<span class="line"><span style="color:#A6ACCD;">systemctl enable nginx # 开机自动启动</span></span>
+<span class="line"><span style="color:#A6ACCD;">systemctl disable nginx # 关闭开机自动启动</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 启动Nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;">systemctl start nginx # 启动Nginx成功后，可以直接访问主机IP，此时会展示Nginx默认页面</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 停止Nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;">systemctl stop nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 重启Nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;">systemctl restart nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 重新加载Nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;">systemctl reload nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 查看 Nginx 运行状态</span></span>
+<span class="line"><span style="color:#A6ACCD;">systemctl status nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 查看Nginx进程</span></span>
+<span class="line"><span style="color:#A6ACCD;">ps -ef | grep nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 杀死Nginx进程</span></span>
+<span class="line"><span style="color:#A6ACCD;">kill -9 pid # 根据上面查看到的Nginx进程号，杀死Nginx进程，-9 表示强制结束进程</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;">nginx -s reload  # 向主进程发送信号，重新加载配置文件，热重启</span></span>
+<span class="line"><span style="color:#A6ACCD;">nginx -s reopen  # 重启 Nginx</span></span>
+<span class="line"><span style="color:#A6ACCD;">nginx -s stop    # 快速关闭</span></span>
+<span class="line"><span style="color:#A6ACCD;">nginx -s quit    # 等待工作进程处理完成后关闭</span></span>
+<span class="line"><span style="color:#A6ACCD;">nginx -T         # 查看当前 Nginx 最终的配置</span></span>
+<span class="line"><span style="color:#A6ACCD;">nginx -t         # 检查配置是否有问题</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div></blockquote><h2 id="nginx全局配置" tabindex="-1">Nginx全局配置 <a class="header-anchor" href="#nginx全局配置" aria-hidden="true">#</a></h2><h5 id="性能配置" tabindex="-1">性能配置 <a class="header-anchor" href="#性能配置" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">#nginx.conf全局配置</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">user nginx;</span></span>
+<span class="line"><span style="color:#A6ACCD;">worker_processes </span><span style="color:#F78C6C;">1</span><span style="color:#A6ACCD;">; 	#worker_processes表示工作进程个数，值越大nginx处理能力越强</span></span>
+<span class="line"><span style="color:#A6ACCD;">error_log /var/log/nginx/error.log warn; 	#记录错误日志信息</span></span>
+<span class="line"><span style="color:#A6ACCD;">pid /var/run/nginx.pid; 	#记录nginx的进程信息</span></span>
+<span class="line"><span style="color:#A6ACCD;">events </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;"> worker_connections 1024; #worker_connections值越大，nginx处理越强</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="location路径映射" tabindex="-1">Location路径映射 <a class="header-anchor" href="#location路径映射" aria-hidden="true">#</a></h5><div class="language-yaml"><button class="copy"></button><span class="lang">yaml</span><pre><code><span class="line"><span style="color:#676E95;">#1、精确匹配</span></span>
+<span class="line"><span style="color:#C3E88D;">location = /abc {</span></span>
+<span class="line"><span style="color:#89DDFF;">     </span><span style="color:#676E95;">#/abc/aaa/bb 不匹配</span></span>
+<span class="line"><span style="color:#89DDFF;">     </span><span style="color:#676E95;">#/abc/  不匹配</span></span>
+<span class="line"><span style="color:#89DDFF;">     </span><span style="color:#676E95;">#/Abc  不匹配</span></span>
+<span class="line"><span style="color:#89DDFF;">     </span><span style="color:#676E95;">#/abc  匹配</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"><span style="color:#676E95;">#2、通用匹配</span></span>
+<span class="line"><span style="color:#C3E88D;">location /abc {</span></span>
+<span class="line"><span style="color:#89DDFF;">    </span><span style="color:#676E95;"># 匹配所有以/abc开头的请求</span></span>
+<span class="line"><span style="color:#89DDFF;">    </span><span style="color:#676E95;"># /abc/abb/aacc 匹配</span></span>
+<span class="line"><span style="color:#89DDFF;">    </span><span style="color:#676E95;"># /abc/  匹配</span></span>
+<span class="line"><span style="color:#89DDFF;">    </span><span style="color:#676E95;"># /abc 匹配</span></span>
+<span class="line"><span style="color:#89DDFF;">    </span><span style="color:#676E95;"># /aaa/abc 不匹配</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"><span style="color:#676E95;">#3、正则匹配</span></span>
+<span class="line"><span style="color:#C3E88D;">location ~ /xxx{</span></span>
+<span class="line"><span style="color:#89DDFF;">     </span><span style="color:#676E95;">#匹配以/xxx开头的，并且区分大小写</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"><span style="color:#C3E88D;">location ~* /xxx{</span></span>
+<span class="line"><span style="color:#89DDFF;">     </span><span style="color:#676E95;">#匹配以/xxx开头的，并且不区分大小写</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"><span style="color:#C3E88D;">location ^~ /images/{</span></span>
+<span class="line"><span style="color:#89DDFF;">    </span><span style="color:#676E95;">#匹配以images开头</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"><span style="color:#C3E88D;">location ~* \.(gif|jpg|png)$ {</span></span>
+<span class="line"><span style="color:#89DDFF;">    </span><span style="color:#676E95;">#匹配以.gif|.jpg|.png结尾的请求的，而且不区分大小写</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"><span style="color:#676E95;">#4、全部匹配</span></span>
+<span class="line"><span style="color:#C3E88D;">location /{</span></span>
+<span class="line"><span style="color:#89DDFF;">    </span><span style="color:#676E95;">#匹配所有</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"></span></code></pre></div><h2 id="nginx-配置代码" tabindex="-1">Nginx 配置代码 <a class="header-anchor" href="#nginx-配置代码" aria-hidden="true">#</a></h2><h5 id="虚拟主机" tabindex="-1">虚拟主机 <a class="header-anchor" href="#虚拟主机" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">ports:</span></span>
+<span class="line"><span style="color:#A6ACCD;">  - </span><span style="color:#F78C6C;">8081</span><span style="color:#A6ACCD;">:</span><span style="color:#F78C6C;">8081</span><span style="color:#A6ACCD;"> #指定端口号的映射</span></span>
+<span class="line"><span style="color:#A6ACCD;">  - </span><span style="color:#F78C6C;">8082</span><span style="color:#A6ACCD;">:</span><span style="color:#F78C6C;">8082</span><span style="color:#A6ACCD;"> #指定端口号的映射</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">#vim /nginx/conf.d/default.conf</span></span>
+<span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 8081;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name localhost;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    location / {</span></span>
+<span class="line"><span style="color:#A6ACCD;">        root	/usr/share/nginx/html-8081;</span></span>
+<span class="line"><span style="color:#A6ACCD;">        index 	index.html index.htm;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 8082;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name localhost;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    location / {</span></span>
+<span class="line"><span style="color:#A6ACCD;">        root /usr/share/nginx/html-8082;</span></span>
+<span class="line"><span style="color:#A6ACCD;">        index index.html index.htm;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">#分别会访问/usr/share/nginx/html</span><span style="color:#F78C6C;">-8081</span><span style="color:#A6ACCD;">(</span><span style="color:#F78C6C;">8082</span><span style="color:#A6ACCD;">)下的index.html文件</span></span>
+<span class="line"></span></code></pre></div><h5 id="侦听端口" tabindex="-1">侦听端口 <a class="header-anchor" href="#侦听端口" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span><span style="color:#A6ACCD;">  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Standard HTTP Protocol </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 80; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Standard HTTPS Protocol </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 443 ssl; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # For http2  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 443 ssl http2; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Listen on 80 using IPv6 </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen [</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;">:]:</span><span style="color:#F78C6C;">80</span><span style="color:#A6ACCD;">; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Listen only on using IPv</span><span style="color:#F78C6C;">6</span><span style="color:#A6ACCD;"> </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen </span><span style="color:#89DDFF;">[</span><span style="color:#A6ACCD;">::</span><span style="color:#89DDFF;">]</span><span style="color:#A6ACCD;">:</span><span style="color:#F78C6C;">80</span><span style="color:#A6ACCD;"> ipv</span><span style="color:#F78C6C;">6</span><span style="color:#A6ACCD;">only=on;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="访问日志" tabindex="-1">访问日志 <a class="header-anchor" href="#访问日志" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span><span style="color:#A6ACCD;"> </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Relative or full path to log file </span></span>
+<span class="line"><span style="color:#A6ACCD;">    access_log /path/to/file.log;  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Turn &#39;on&#39; or &#39;off&#39;  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    access_log on;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="域名" tabindex="-1">域名 <a class="header-anchor" href="#域名" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Listen to yourdomain.com </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name yourdomain.com;  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Listen to multiple domains  server_name yourdomain.com www.yourdomain.com; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Listen to all domains</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name *.yourdomain.com; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Listen to all top-level domains </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name yourdomain.*; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    # Listen to unspecified Hostnames (Listens to IP address itself) </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name </span><span style="color:#89DDFF;">&quot;&quot;</span><span style="color:#A6ACCD;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="静态资源" tabindex="-1">静态资源 <a class="header-anchor" href="#静态资源" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span><span style="color:#A6ACCD;">  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 80;  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name yourdomain.com;  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    location / {      </span></span>
+<span class="line"><span style="color:#A6ACCD;">        root /path/to/website; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="重定向" tabindex="-1">重定向 <a class="header-anchor" href="#重定向" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span><span style="color:#A6ACCD;"> </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 80;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name www.yourdomain.com;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    return 301 http</span><span style="color:#89DDFF;">:</span><span style="color:#676E95;">//yourdomain.com$request_uri;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 80; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name www.yourdomain.com; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    location /redirect-url { </span></span>
+<span class="line"><span style="color:#A6ACCD;">    	return 301 http</span><span style="color:#89DDFF;">:</span><span style="color:#676E95;">//otherdomain.com; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="反向代理" tabindex="-1">反向代理 <a class="header-anchor" href="#反向代理" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span><span style="color:#A6ACCD;"> </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 80; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name yourdomain.com;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    #反向代理将请求转发给3000</span></span>
+<span class="line"><span style="color:#A6ACCD;">    location / {  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    	proxy_pass http</span><span style="color:#89DDFF;">:</span><span style="color:#676E95;">//0.0.0.0:3000; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="负载均衡" tabindex="-1">负载均衡 <a class="header-anchor" href="#负载均衡" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">负载均衡策略:</span></span>
+<span class="line"><span style="color:#A6ACCD;">    backup：热备，等主服务器停止工作了，备份机才工作</span></span>
+<span class="line"><span style="color:#A6ACCD;">    轮询：将客户端的请求轮流分配给不同的主机</span></span>
+<span class="line"><span style="color:#A6ACCD;">    权重：可以设置多台服务器的接收百分比！</span></span>
+<span class="line"><span style="color:#A6ACCD;">    ip_hash：基于客户端的ip进行服务器分配</span></span>
+<span class="line"><span style="color:#A6ACCD;">    fair：根据服务器的请求时间来进行分配</span></span>
+<span class="line"><span style="color:#A6ACCD;">    url_hash：基于请求的地址进行服务器分配</span></span>
+<span class="line"></span></code></pre></div><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">#vim /nginx/conf.d/default.conf</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">#</span><span style="color:#F78C6C;">1</span></span>
+<span class="line"><span style="color:#A6ACCD;">upstream node_js </span><span style="color:#89DDFF;">{</span><span style="color:#A6ACCD;"> </span></span>
+<span class="line"><span style="color:#A6ACCD;">    #默认nginx采用的是轮询策略</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server 0.0.0.0</span><span style="color:#89DDFF;">:</span><span style="color:#F78C6C;">3000</span><span style="color:#A6ACCD;">; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server </span><span style="color:#F78C6C;">0.0</span><span style="color:#A6ACCD;">.</span><span style="color:#F78C6C;">0.0</span><span style="color:#A6ACCD;">:</span><span style="color:#F78C6C;">4000</span><span style="color:#A6ACCD;">; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server </span><span style="color:#F78C6C;">123.131</span><span style="color:#A6ACCD;">.</span><span style="color:#F78C6C;">121.122</span><span style="color:#A6ACCD;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">#</span><span style="color:#F78C6C;">2</span></span>
+<span class="line"><span style="color:#A6ACCD;">upstream tomcats</span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server 192.168.127.130</span><span style="color:#89DDFF;">:</span><span style="color:#F78C6C;">8080</span><span style="color:#A6ACCD;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server </span><span style="color:#F78C6C;">192.168</span><span style="color:#A6ACCD;">.</span><span style="color:#F78C6C;">127.130</span><span style="color:#A6ACCD;">:</span><span style="color:#F78C6C;">8081</span><span style="color:#A6ACCD;"> backup; #热备</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">#</span><span style="color:#F78C6C;">3</span></span>
+<span class="line"><span style="color:#A6ACCD;">upstream tomcats</span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server 192.168.127.130</span><span style="color:#89DDFF;">:</span><span style="color:#F78C6C;">8080</span><span style="color:#A6ACCD;"> weight=</span><span style="color:#F78C6C;">2</span><span style="color:#A6ACCD;">; #权重</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server </span><span style="color:#F78C6C;">192.168</span><span style="color:#A6ACCD;">.</span><span style="color:#F78C6C;">127.130</span><span style="color:#A6ACCD;">:</span><span style="color:#F78C6C;">8081</span><span style="color:#A6ACCD;"> weight=</span><span style="color:#F78C6C;">1</span><span style="color:#A6ACCD;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">#</span><span style="color:#F78C6C;">4</span></span>
+<span class="line"><span style="color:#A6ACCD;">upstream tomcats</span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    ip_hash; #ip_hash策略</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server 192.168.127.130</span><span style="color:#89DDFF;">:</span><span style="color:#F78C6C;">8080</span><span style="color:#A6ACCD;">;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server </span><span style="color:#F78C6C;">192.168</span><span style="color:#A6ACCD;">.</span><span style="color:#F78C6C;">127.130</span><span style="color:#A6ACCD;">:</span><span style="color:#F78C6C;">8081</span><span style="color:#A6ACCD;">; </span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span><span style="color:#A6ACCD;">  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 80; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name localhost;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    location / {    </span></span>
+<span class="line"><span style="color:#A6ACCD;">    	proxy_pass http</span><span style="color:#89DDFF;">:</span><span style="color:#676E95;">//node_js; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="ssl-协议" tabindex="-1">SSL 协议 <a class="header-anchor" href="#ssl-协议" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span><span style="color:#A6ACCD;"> </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 443 ssl; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name yourdomain.com;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    ssl on; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    ssl_certificate /path/to/cert.pem;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    ssl_certificate_key /path/to/privatekey.pem; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    ssl_stapling on;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    ssl_stapling_verify on; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    ssl_trusted_certificate /path/to/fullchain.pem; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    ssl_session_timeout 1h;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    ssl_session_cache shared</span><span style="color:#89DDFF;">:</span><span style="color:#A6ACCD;">SSL:</span><span style="color:#F78C6C;">50</span><span style="color:#A6ACCD;">m;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    add_header Strict-Transport-Security max-age=</span><span style="color:#F78C6C;">15768000</span><span style="color:#A6ACCD;">;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;"># Permanent Redirect for HTTP to HTTPS</span></span>
+<span class="line"><span style="color:#A6ACCD;">server </span><span style="color:#89DDFF;">{</span><span style="color:#A6ACCD;">  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 80;  </span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name yourdomain.com; </span></span>
+<span class="line"><span style="color:#A6ACCD;">    return 301 https</span><span style="color:#89DDFF;">:</span><span style="color:#676E95;">//$host$request_uri;</span></span>
+<span class="line"><span style="color:#89DDFF;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="动静分离" tabindex="-1">动静分离 <a class="header-anchor" href="#动静分离" aria-hidden="true">#</a></h5><div class="language-json"><button class="copy"></button><span class="lang">json</span><pre><code><span class="line"><span style="color:#A6ACCD;">server</span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">    listen 80;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    server_name localhost;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span></span>
+<span class="line"><span style="color:#A6ACCD;">    #代理动态资源</span></span>
+<span class="line"><span style="color:#A6ACCD;">    location /{</span></span>
+<span class="line"><span style="color:#A6ACCD;">        proxy_pass http</span><span style="color:#89DDFF;">:</span><span style="color:#676E95;">//192.168.127.130:8080;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">     #静态资源配置</span></span>
+<span class="line"><span style="color:#A6ACCD;">    location /html </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">     	root /data;	#静态资源的路径</span></span>
+<span class="line"><span style="color:#A6ACCD;">     	index index.html; #默认访问的资源</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">    location /img </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#A6ACCD;">     	root /data;</span></span>
+<span class="line"><span style="color:#A6ACCD;">     	autoindex on;#以列表显示当前目录下的所有图片</span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#89DDFF;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"></span></code></pre></div><h5 id="https" tabindex="-1">HTTPS <a class="header-anchor" href="#https" aria-hidden="true">#</a></h5><blockquote><p><strong>HTTPS 工作流程</strong></p><ol><li>客户端（浏览器）访问 <code>https://www.baidu.com</code> 百度网站；</li><li>百度服务器返回 <code>HTTPS</code> 使用的 <code>CA</code> 证书；</li><li>浏览器验证 <code>CA</code> 证书是否为合法证书；</li><li>验证通过，证书合法，生成一串随机数并使用公钥（证书中提供的）进行加密；</li><li>发送公钥加密后的随机数给百度服务器；</li><li>百度服务器拿到密文，通过私钥进行解密，获取到随机数（公钥加密，私钥解密，反之也可以）；</li><li>百度服务器把要发送给浏览器的内容，使用随机数进行加密后传输给浏览器；</li><li>此时浏览器可以使用随机数进行解密，获取到服务器的真实传输内容；</li></ol></blockquote><h6 id="配置证书" tabindex="-1">配置证书 <a class="header-anchor" href="#配置证书" aria-hidden="true">#</a></h6><p>下载证书的压缩文件，里面有个 <code>Nginx</code> 文件夹，把 <code>xxx.crt</code> 和 <code>xxx.key</code> 文件拷贝到服务器目录，再进行如下配置：</p><div class="language-"><button class="copy"></button><span class="lang"></span><pre><code><span class="line"><span style="color:#A6ACCD;">server {</span></span>
+<span class="line"><span style="color:#A6ACCD;">  listen 443 ssl http2 default_server;   # SSL 访问端口号为 443</span></span>
+<span class="line"><span style="color:#A6ACCD;">  server_name lion.club;         # 填写绑定证书的域名(我这里是随便写的)</span></span>
+<span class="line"><span style="color:#A6ACCD;">  ssl_certificate /etc/nginx/https/lion.club_bundle.crt;   # 证书地址</span></span>
+<span class="line"><span style="color:#A6ACCD;">  ssl_certificate_key /etc/nginx/https/lion.club.key;      # 私钥地址</span></span>
+<span class="line"><span style="color:#A6ACCD;">  ssl_session_timeout 10m;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # 支持ssl协议版本，默认为后三个，主流版本是[TLSv1.2]</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;">  location / {</span></span>
+<span class="line"><span style="color:#A6ACCD;">    root         /usr/share/nginx/html;</span></span>
+<span class="line"><span style="color:#A6ACCD;">    index        index.html index.htm;</span></span>
+<span class="line"><span style="color:#A6ACCD;">  }</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><p>如此配置后就能正常访问 <code>HTTPS</code> 版的网站</p><h5 id="跨域-cors" tabindex="-1">跨域 CORS <a class="header-anchor" href="#跨域-cors" aria-hidden="true">#</a></h5><p>例如：</p><ul><li>前端 <code>server</code> 的域名为： <code>fe.server.com</code></li><li>后端服务的域名为： <code>dev.server.com</code></li></ul><p>现在我在 <code>fe.server.com</code> 对 <code>dev.server.com</code> 发起请求一定会出现跨域。</p><p>现在我们只需要启动一个 <code>Nginx</code> 服务器，将 <code>server_name</code> 设置为 <code>fe.server.com</code> 然后设置相应的 <code>location</code> 以拦截前端需要跨域的请求，最后将请求代理回 <code>dev.server.com</code> 。如下面的配置：</p><div class="language-nginx"><button class="copy"></button><span class="lang">nginx</span><pre><code><span class="line"><span style="color:#C792EA;">server</span><span style="color:#A6ACCD;"> { </span></span>
+<span class="line"><span style="color:#A6ACCD;">   </span><span style="color:#89DDFF;"> listen </span><span style="color:#A6ACCD;">     </span><span style="color:#F78C6C;">80</span><span style="color:#89DDFF;">;</span><span style="color:#A6ACCD;"> </span></span>
+<span class="line"><span style="color:#A6ACCD;">   </span><span style="color:#89DDFF;"> server_name </span><span style="color:#A6ACCD;"> fe.server.com</span><span style="color:#89DDFF;">;</span><span style="color:#A6ACCD;"> </span></span>
+<span class="line"><span style="color:#A6ACCD;">    </span><span style="color:#C792EA;">location</span><span style="color:#A6ACCD;"> </span><span style="color:#FFCB6B;">/ </span><span style="color:#A6ACCD;">{  </span></span>
+<span class="line"><span style="color:#A6ACCD;">       </span><span style="color:#89DDFF;"> proxy_pass </span><span style="color:#A6ACCD;">dev.server.com</span><span style="color:#89DDFF;">;</span><span style="color:#A6ACCD;"> </span></span>
+<span class="line"><span style="color:#A6ACCD;">    }</span></span>
+<span class="line"><span style="color:#A6ACCD;">}</span></span>
+<span class="line"></span></code></pre></div><p>这样可以完美绕过浏览器的同源策略： <code>fe.server.com</code> 访问 <code>Nginx</code> 的 <code>fe.server.com</code> 属于同源访问，而 <code>Nginx</code> 对服务端转发的请求不会触发浏览器的同源策略。</p><h5 id="gzip-压缩" tabindex="-1">gzip 压缩 <a class="header-anchor" href="#gzip-压缩" aria-hidden="true">#</a></h5><blockquote><p><code>GZIP</code> 是规定的三种标准 <code>HTTP</code> 压缩格式之一。目前绝大多数的网站都在使用 <code>GZIP</code> 传输 <code>HTML</code> 、<code>CSS</code> 、 <code>JavaScript</code> 等资源文件。</p><p>对于文本文件， <code>GZiP</code> 的效果非常明显，开启后传输所需流量大约会降至 <code>1/4~1/3</code> 。</p><p>并不是每个浏览器都支持 <code>gzip</code> 的，如何知道客户端是否支持 <code>gzip</code> 呢，请求头中的 <code>Accept-Encoding</code> 来标识对压缩的支持。</p><p>启用 <code>gzip</code> 同时需要客户端和服务端的支持，如果客户端支持 <code>gzip</code> 的解析，那么只要服务端能够返回 <code>gzip</code> 的文件就可以启用 <code>gzip</code> 了,我们可以通过 <code>Nginx</code> 的配置来让服务端支持 <code>gzip</code> 。</p><p><code>respone</code> 中 <code>content-encoding:gzip</code> ，指服务端开启了 <code>gzip</code> 的压缩方式</p></blockquote><p>在 <code>/etc/nginx/conf.d/</code> 文件夹中新建配置文件 <code>gzip.conf</code> ：</p><div class="language-"><button class="copy"></button><span class="lang"></span><pre><code><span class="line"><span style="color:#A6ACCD;"># # 默认off，是否开启gzip</span></span>
+<span class="line"><span style="color:#A6ACCD;">gzip on;</span></span>
+<span class="line"><span style="color:#A6ACCD;"># 要采用 gzip 压缩的 MIME 文件类型，其中 text/html 被系统强制启用；</span></span>
+<span class="line"><span style="color:#A6ACCD;">gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># ---- 以上两个参数开启就可以支持Gzip压缩了 ---- #</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 默认 off，该模块启用后，Nginx 首先检查是否存在请求静态文件的 gz 结尾的文件，如果有则直接返回该 .gz 文件内容；</span></span>
+<span class="line"><span style="color:#A6ACCD;">gzip_static on;</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 默认 off，nginx做为反向代理时启用，用于设置启用或禁用从代理服务器上收到相应内容 gzip 压缩；</span></span>
+<span class="line"><span style="color:#A6ACCD;">gzip_proxied any;</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 用于在响应消息头中添加 Vary：Accept-Encoding，使代理服务器根据请求头中的 Accept-Encoding 识别是否启用 gzip 压缩；</span></span>
+<span class="line"><span style="color:#A6ACCD;">gzip_vary on;</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># gzip 压缩比，压缩级别是 1-9，1 压缩级别最低，9 最高，级别越高压缩率越大，压缩时间越长，建议 4-6；</span></span>
+<span class="line"><span style="color:#A6ACCD;">gzip_comp_level 6;</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 获取多少内存用于缓存压缩结果，16 8k 表示以 8k*16 为单位获得；</span></span>
+<span class="line"><span style="color:#A6ACCD;">gzip_buffers 16 8k;</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 允许压缩的页面最小字节数，页面字节数从header头中的 Content-Length 中进行获取。默认值是 0，不管页面多大都压缩。建议设置成大于 1k 的字节数，小于 1k 可能会越压越大；</span></span>
+<span class="line"><span style="color:#A6ACCD;"># gzip_min_length 1k;</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"># 默认 1.1，启用 gzip 所需的 HTTP 最低版本；</span></span>
+<span class="line"><span style="color:#A6ACCD;">gzip_http_version 1.1;</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div></div></div></main><!--[--><!--]--><!----><!--[--><!--]--></div></div></div></div></div><!----><!--[--><!--]--></div></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"book_0000_线上问题详解.md\":\"f7067ae5\",\"book_0001_手把手带你搭建秒杀系统.md\":\"10469840\",\"book_index.md\":\"0078e77b\",\"design_index.md\":\"dde577f3\",\"design_分布式id方案.md\":\"0db3c864\",\"design_分布式事务方案.md\":\"9b2abef5\",\"design_单点登录架构设计.md\":\"ad7c21d1\",\"design_多级缓存架构设计.md\":\"3780c5a1\",\"design_接口性能优化方案.md\":\"9423bfa7\",\"design_日志系统架构设计.md\":\"e911cd68\",\"design_架构图设计方案.md\":\"7d9bf058\",\"design_灰度方案设计.md\":\"0aee1c22\",\"design_电商业务架构设计.md\":\"9340438c\",\"design_秒杀系统架构设计.md\":\"1c28818d\",\"design_订单系统架构设计.md\":\"9a32b34e\",\"design_高可用架构设计.md\":\"51b0ff2e\",\"index.md\":\"dba61ccc\",\"intro_standard_checkstyle.md\":\"a3f61644\",\"intro_standard_ide.md\":\"3cba4a3a\",\"intro_standard_p3c.md\":\"983674a9\",\"intro_standard_sonarlint.md\":\"7fe2873a\",\"intro_voice.md\":\"c1c09b59\",\"second_cloud_alibaba_dubbo.md\":\"8d097111\",\"second_cloud_alibaba_nacos.md\":\"5c78a7c4\",\"second_cloud_alibaba_seata.md\":\"319b586d\",\"second_cloud_alibaba_sentinel.md\":\"3591447d\",\"second_cloud_alibaba_zookeeper.md\":\"57be21e4\",\"second_cloud_spring_hystrix.md\":\"c269c034\",\"second_cloud_spring_openfeign.md\":\"cf3bd65e\",\"second_cloud_spring_skywalking.md\":\"02bdb30e\",\"second_cloud_spring_springcloudgateway.md\":\"00382510\",\"second_cloud_spring_springcloudstream.md\":\"a72823bb\",\"second_flow_compileflow.md\":\"43898c1d\",\"second_flow_liteflow.md\":\"7bd89a79\",\"second_mq_kafka.md\":\"6e9cb2c4\",\"second_mq_rabbitmq.md\":\"a3d8beac\",\"second_mq_rocketmq.md\":\"1aeface3\",\"second_server_linux.md\":\"b509fbe5\",\"second_server_netty.md\":\"b40a1333\",\"second_server_nginx.md\":\"dd811e5c\",\"second_server_openresty.md\":\"8d0af710\",\"second_server_tomcat.md\":\"ded5ffed\",\"second_test_apachejmeter.md\":\"ce49b141\",\"second_test_charles.md\":\"042a6be4\",\"second_test_jmh.md\":\"79a3acbd\",\"second_test_mockito.md\":\"bfcd915b\",\"second_test_testablemock.md\":\"f4ff5258\",\"study_algorithm_二叉树.md\":\"6ead0db2\",\"study_algorithm_动态规划.md\":\"a88ec37c\",\"study_algorithm_数据结构设计.md\":\"1816aeeb\",\"study_algorithm_数组与链表.md\":\"b1e4fe98\",\"study_algorithm_队列与栈.md\":\"efda1853\",\"study_alibaba_index.md\":\"c0f32410\",\"study_bigdata_index.md\":\"86a7dbde\",\"study_container_docker.md\":\"5d682349\",\"study_container_k8s.md\":\"5afb7759\",\"study_database_clickhouse.md\":\"5d0ef1da\",\"study_database_elasticsearch.md\":\"c9d6c655\",\"study_database_fastdfs.md\":\"9075d2d5\",\"study_database_hbase.md\":\"ad474e18\",\"study_database_memcached.md\":\"ebe599a5\",\"study_database_mongodb.md\":\"49705e52\",\"study_database_mysql.md\":\"0c672c2f\",\"study_database_mysqlextend.md\":\"7e2da7b4\",\"study_database_oracle.md\":\"f2bceeb9\",\"study_database_postgresql.md\":\"354aec9e\",\"study_database_redis.md\":\"7234193b\",\"study_framework_spring.md\":\"2e2d158e\",\"study_framework_springboot.md\":\"d14c8aa6\",\"study_java_juc.md\":\"746dee70\",\"study_java_jvm.md\":\"0aa18050\",\"study_java_jvm实战.md\":\"d48dcdf1\",\"study_java_javastream流.md\":\"9adec9e6\",\"study_java_java反射和注解.md\":\"9bb2dc9d\",\"study_java_java响应式编程.md\":\"2d635fff\",\"study_java_java语法.md\":\"9b7422e2\",\"study_java_java集合.md\":\"2f354e19\",\"study_java_base.md\":\"fa66fe28\",\"study_middleware_canal.md\":\"69fccc81\",\"study_middleware_flow.md\":\"29b6220c\",\"study_middleware_mq.md\":\"08e56604\",\"study_middleware_satoken.md\":\"8ffdc8dc\",\"study_middleware_server.md\":\"cd36d8a8\",\"study_middleware_shardingjdbc.md\":\"a5908049\",\"study_orm_druid.md\":\"ce3d6341\",\"study_orm_jpa.md\":\"6e20b8ce\",\"study_orm_mybatis.md\":\"017f25cc\",\"study_orm_mybatisplus.md\":\"e1145df0\",\"study_springcloud_index.md\":\"53d1101c\",\"study_test_index.md\":\"289fa7c9\",\"study_util_asynctool.md\":\"1444b97e\",\"study_util_easyexcel.md\":\"9c2c4e54\",\"study_util_feilong.md\":\"4a2af4e2\",\"study_util_forest.md\":\"d581fed6\",\"study_util_guava.md\":\"2b830a90\",\"study_util_hutool.md\":\"6af48a8f\",\"study_util_mapstruct.md\":\"be20238c\",\"study_util_swagger.md\":\"406d1988\",\"study_util_tlog.md\":\"fc3ece8c\",\"study_util_vavr.md\":\"60f5d433\"}")</script>
+    <script type="module" async src="/assets/app.91d57d2c.js"></script>
+    
+  </body>
+</html>
