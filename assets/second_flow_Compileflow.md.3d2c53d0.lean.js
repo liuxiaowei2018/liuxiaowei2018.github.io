@@ -1,0 +1,1 @@
+import{_ as e,c as o,o as t,a as l}from"./app.1af635ee.js";const d=JSON.parse('{"title":"Compileflow","description":"","frontmatter":{},"headers":[],"relativePath":"second/flow/Compileflow.md"}'),a={name:"second/flow/Compileflow.md"},i=l("",4),r=[i];function p(c,s,n,m,f,_){return t(),o("div",null,r)}const b=e(a,[["render",p]]);export{d as __pageData,b as default};

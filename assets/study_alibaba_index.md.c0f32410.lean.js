@@ -1,1 +1,0 @@
-import{_ as a,c as o,o as i,a as l}from"./app.91d57d2c.js";const _=JSON.parse('{"title":"Spring Cloud Alibaba","description":"","frontmatter":{},"headers":[],"relativePath":"study/alibaba/index.md"}'),r={name:"study/alibaba/index.md"},n=l("",8),e=[n];function t(s,p,d,g,b,c){return i(),o("div",null,e)}const S=a(r,[["render",t]]);export{_ as __pageData,S as default};
