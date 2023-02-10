@@ -1,0 +1,1 @@
+import{_ as t,c as o,o as p,a as r}from"./app.467f35a9.js";const u=JSON.parse('{"title":"结束语 | 学不可以已","description":"","frontmatter":{},"headers":[],"relativePath":"book0002/08结束/结束语-学不可以已.md"}'),s={name:"book0002/08结束/结束语-学不可以已.md"},n=r("",19),e=[n];function _(a,i,l,c,g,d){return p(),o("div",null,e)}const f=t(s,[["render",_]]);export{u as __pageData,f as default};

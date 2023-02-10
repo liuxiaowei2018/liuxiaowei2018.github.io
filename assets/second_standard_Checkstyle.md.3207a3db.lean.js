@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,a as l}from"./app.89083758.js";const i=JSON.parse('{"title":"Checkstyle","description":"","frontmatter":{},"headers":[],"relativePath":"second/standard/Checkstyle.md"}'),o={name:"second/standard/Checkstyle.md"},p=l("",4),t=[p];function e(D,c,F,r,y,C){return a(),n("div",null,t)}const u=s(o,[["render",e]]);export{i as __pageData,u as default};
