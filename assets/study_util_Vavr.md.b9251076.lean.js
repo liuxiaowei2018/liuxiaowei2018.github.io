@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,N as l}from"./chunks/framework.0799945b.js";const i=JSON.parse('{"title":"Vavr","description":"","frontmatter":{},"headers":[],"relativePath":"study/util/Vavr.md"}'),p={name:"study/util/Vavr.md"},o=l("",23),t=[o];function e(c,r,D,y,F,A){return a(),n("div",null,t)}const E=s(p,[["render",e]]);export{i as __pageData,E as default};

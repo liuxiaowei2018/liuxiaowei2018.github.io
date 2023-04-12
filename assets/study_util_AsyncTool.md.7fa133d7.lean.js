@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as l,N as o}from"./chunks/framework.0799945b.js";const d=JSON.parse('{"title":"AsyncTool","description":"","frontmatter":{},"headers":[],"relativePath":"study/util/AsyncTool.md"}'),a={name:"study/util/AsyncTool.md"},n=o("",14),r=[n];function s(p,c,u,i,h,_){return l(),t("div",null,r)}const m=e(a,[["render",s]]);export{d as __pageData,m as default};

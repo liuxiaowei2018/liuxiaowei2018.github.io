@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as o}from"./chunks/framework.0799945b.js";const F=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"second/standard/SonarLint.md"}'),l={name:"second/standard/SonarLint.md"},p=o("",19),e=[p];function r(t,c,D,C,y,i){return n(),a("div",null,e)}const d=s(l,[["render",r]]);export{F as __pageData,d as default};
