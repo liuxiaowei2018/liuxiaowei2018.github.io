@@ -1,1 +1,0 @@
-import{_ as e,c as o,o as l,N as t}from"./chunks/framework.0799945b.js";const d=JSON.parse('{"title":"Compileflow","description":"","frontmatter":{},"headers":[],"relativePath":"second/flow/Compileflow.md"}'),a={name:"second/flow/Compileflow.md"},i=t("",4),r=[i];function p(c,s,n,m,f,_){return l(),o("div",null,r)}const b=e(a,[["render",p]]);export{d as __pageData,b as default};

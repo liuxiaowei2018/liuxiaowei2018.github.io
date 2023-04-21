@@ -1,0 +1,1 @@
+import{_ as a,c as l,o,N as i}from"./chunks/framework.0799945b.js";const _=JSON.parse('{"title":"Spring Cloud Alibaba","description":"","frontmatter":{},"headers":[],"relativePath":"study/alibaba/index.md"}'),n={name:"study/alibaba/index.md"},r=i("",8),t=[r];function e(s,b,d,p,g,u){return o(),l("div",null,t)}const h=a(n,[["render",e]]);export{_ as __pageData,h as default};

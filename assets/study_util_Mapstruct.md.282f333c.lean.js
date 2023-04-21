@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,N as l}from"./chunks/framework.0799945b.js";const i=JSON.parse('{"title":"Mapstruct","description":"","frontmatter":{},"headers":[],"relativePath":"study/util/Mapstruct.md"}'),p={name:"study/util/Mapstruct.md"},o=l("",2),t=[o];function e(c,r,D,F,y,A){return a(),n("div",null,t)}const u=s(p,[["render",e]]);export{i as __pageData,u as default};

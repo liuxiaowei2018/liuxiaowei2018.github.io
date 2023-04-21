@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.0799945b.js";const A=JSON.parse('{"title":"LiteFlow","description":"","frontmatter":{},"headers":[],"relativePath":"second/flow/liteflow.md"}'),o={name:"second/flow/liteflow.md"},p=l("",14),e=[p];function t(c,r,D,i,y,F){return n(),a("div",null,e)}const u=s(o,[["render",t]]);export{A as __pageData,u as default};

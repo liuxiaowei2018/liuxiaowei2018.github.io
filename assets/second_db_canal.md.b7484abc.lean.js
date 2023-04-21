@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.0799945b.js";const i=JSON.parse('{"title":"Canal","description":"","frontmatter":{},"headers":[],"relativePath":"second/db/canal.md"}'),p={name:"second/db/canal.md"},o=l("",15),e=[o];function c(t,r,C,y,A,D){return n(),a("div",null,e)}const E=s(p,[["render",c]]);export{i as __pageData,E as default};

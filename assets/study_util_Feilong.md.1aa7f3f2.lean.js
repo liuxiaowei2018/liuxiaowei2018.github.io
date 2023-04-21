@@ -1,1 +1,0 @@
-import{_ as t,c as e,o,N as l}from"./chunks/framework.0799945b.js";const F=JSON.parse('{"title":"Feilong","description":"","frontmatter":{},"headers":[],"relativePath":"study/util/Feilong.md"}'),a={name:"study/util/Feilong.md"},n=l("",11),s=[n];function r(d,i,p,c,f,g){return o(),e("div",null,s)}const u=t(a,[["render",r]]);export{F as __pageData,u as default};
