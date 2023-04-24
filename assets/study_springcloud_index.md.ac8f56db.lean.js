@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as r,N as n}from"./chunks/framework.0799945b.js";const _=JSON.parse('{"title":"SpringCloud","description":"","frontmatter":{},"headers":[],"relativePath":"study/springcloud/index.md"}'),t={name:"study/springcloud/index.md"},i=n("",11),o=[i];function l(d,s,c,p,h,u){return r(),e("div",null,o)}const m=a(t,[["render",l]]);export{_ as __pageData,m as default};
