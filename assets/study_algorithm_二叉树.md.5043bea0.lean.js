@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,N as l}from"./chunks/framework.0799945b.js";const A=JSON.parse('{"title":"数据结构","description":"","frontmatter":{},"headers":[],"relativePath":"study/algorithm/二叉树.md"}'),o={name:"study/algorithm/二叉树.md"},e=l("",4),t=[e];function p(c,r,i,y,D,F){return n(),a("div",null,t)}const d=s(o,[["render",p]]);export{A as __pageData,d as default};

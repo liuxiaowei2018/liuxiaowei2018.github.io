@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,N as l}from"./chunks/framework.0799945b.js";const i=JSON.parse('{"title":"数据结构","description":"","frontmatter":{},"headers":[],"relativePath":"study/algorithm/LRU&LFU.md"}'),p={name:"study/algorithm/LRU&LFU.md"},o=l("",8),e=[o];function t(c,r,y,D,A,C){return n(),a("div",null,e)}const h=s(p,[["render",t]]);export{i as __pageData,h as default};
