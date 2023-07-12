@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./chunks/framework.0799945b.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"rycatalogue/index.md"}'),r={name:"rycatalogue/index.md"};function o(n,c,s,d,i,p){return a(),t("div")}const m=e(r,[["render",o]]);export{l as __pageData,m as default};
