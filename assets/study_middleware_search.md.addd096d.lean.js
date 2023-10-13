@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as t,N as s}from"./chunks/framework.0799945b.js";const f=JSON.parse('{"title":"搜索引擎中间件","description":"","frontmatter":{},"headers":[],"relativePath":"study/middleware/search.md"}'),c={name:"study/middleware/search.md"},r=s("",5),l=[r];function i(h,o,n,d,_,u){return t(),e("div",null,l)}const p=a(c,[["render",i]]);export{f as __pageData,p as default};

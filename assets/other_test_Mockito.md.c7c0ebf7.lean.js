@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,N as l}from"./chunks/framework.0799945b.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"other/test/Mockito.md"}'),o={name:"other/test/Mockito.md"},p=l("",14),t=[p];function e(c,r,F,D,y,A){return a(),n("div",null,t)}const d=s(o,[["render",e]]);export{i as __pageData,d as default};

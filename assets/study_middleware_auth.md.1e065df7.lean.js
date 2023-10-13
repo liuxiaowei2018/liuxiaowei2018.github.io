@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as t,N as o}from"./chunks/framework.0799945b.js";const p=JSON.parse('{"title":"权限框架中间件","description":"","frontmatter":{},"headers":[],"relativePath":"study/middleware/auth.md"}'),s={name:"study/middleware/auth.md"},n=o("",4),r=[n];function c(d,_,i,l,h,u){return t(),e("div",null,r)}const k=a(s,[["render",c]]);export{p as __pageData,k as default};

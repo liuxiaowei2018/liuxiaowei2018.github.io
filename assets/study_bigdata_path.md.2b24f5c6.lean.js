@@ -1,1 +1,0 @@
-import{_ as a,c as e,o,N as r}from"./chunks/framework.0799945b.js";const f=JSON.parse('{"title":"大数据","description":"","frontmatter":{},"headers":[],"relativePath":"study/bigdata/path.md"}'),i={name:"study/bigdata/path.md"},l=r("",56),h=[l];function t(n,d,s,p,c,k){return o(),e("div",null,h)}const b=a(i,[["render",t]]);export{f as __pageData,b as default};
