@@ -1,1 +1,0 @@
-import{_ as a,o as e,c as t}from"./chunks/framework.8048b864.js";const l=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"ai/ai学习路线.md","filePath":"ai/ai学习路线.md","lastUpdated":null}'),r={name:"ai/ai学习路线.md"};function i(o,s,n,c,_,d){return e(),t("div")}const m=a(r,[["render",i]]);export{l as __pageData,m as default};
